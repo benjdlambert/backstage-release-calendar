@@ -1,6 +1,7 @@
 import * as luxon from "luxon";
+import generator from "ical-generator";
 const ical = require("node-ical");
-
+import { promises as fs } from "fs";
 interface Event {
   type: string;
   summary: string;
@@ -33,14 +34,22 @@ const main = async () => {
   // get the closest tuesday.
   const tuesday = today.plus({ day: 2 - today.weekday });
 
+  const calendar = generator({ name: "Backstage Releases" });
+
   // for every tuesday throughout the year
   for (let i = 0; i < 52; i++) {
     const current = tuesday.plus({ weeks: i });
     const wednesday = current.plus({ days: 1 });
 
     const isMainlineRelease = communityEvents.includes(wednesday.toISODate());
-    console.log("isMainline", wednesday.toISODate(), isMainlineRelease);
+    calendar.createEvent({
+      summary: `Backstage Release (${isMainlineRelease ? "mainline" : "next"})`,
+      start: tuesday.toJSDate(),
+      allDay: true,
+    });
   }
+
+  await fs.writeFile("cal.ics", calendar.toString(), "utf-8");
 };
 
 main();

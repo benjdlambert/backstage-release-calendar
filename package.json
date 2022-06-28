@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
+    "ical-generator": "^3.4.3",
+    "ics": "^2.35.0",
     "luxon": "^2.4.0",
     "node-ical": "^0.15.1",
     "ts-node": "^10.8.1",
