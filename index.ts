@@ -44,7 +44,7 @@ const main = async () => {
     const isMainlineRelease = communityEvents.includes(wednesday.toISODate());
     calendar.createEvent({
       summary: `Backstage Release (${isMainlineRelease ? "mainline" : "next"})`,
-      start: tuesday.toJSDate(),
+      start: current.toJSDate(),
       allDay: true,
     });
   }
