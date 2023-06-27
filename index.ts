@@ -18,7 +18,7 @@ const main = async () => {
 
   const communityEvents = Object.values(communityEventsCalendar)
     .filter(
-      (e) => e.type === "VEVENT" && e.summary.includes("Adopters") && e.rrule
+      (e) => e.type === "VEVENT" && e.summary.includes("Community") && e.rrule
     )
     .flatMap((e) =>
       e.rrule?.between(
