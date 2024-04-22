@@ -39,8 +39,8 @@ const main = async () => {
   // for every tuesday throughout the year
   for (let i = 0; i < 52; i++) {
     const current = tuesday.plus({ weeks: i });
-    // community event is the week after wednesday
-    const wednesday = current.plus({ days: 1, weeks: 1 });
+    // community event is wednesday after
+    const wednesday = current.plus({ days: 1 });
 
     const isMainlineRelease = communityEvents.includes(wednesday.toISODate());
     calendar.createEvent({
