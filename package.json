@@ -2,12 +2,16 @@
   "name": "backstage-release-calendar",
   "version": "1.0.0",
   "license": "MIT",
+  "scripts": {
+    "build": "tsx ./index.ts"
+  },
   "dependencies": {
     "ical-generator": "^3.4.3",
     "ics": "^2.35.0",
     "luxon": "^2.4.0",
     "node-ical": "^0.15.1",
     "ts-node": "^10.8.1",
+    "tsx": "^4.19.4",
     "typescript": "^4.7.4"
   },
   "devDependencies": {
